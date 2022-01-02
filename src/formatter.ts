@@ -13,6 +13,6 @@ export class DefaultFormatter implements Formatter {
             return e.name.padEnd(stringLength, " ")
         })
         const sorted = padded.sort()
-        return sorted.reduce((acc, val) => `${acc}\t${val}`)
+        return sorted.reduce((acc, val) => `${acc} ${val}`)
     }
 }
