@@ -12,6 +12,6 @@ const entries = [
 Deno.test("文字列がソートされかつ文字列長が一番長い文字列にあわせてパディングされた状態でタブ区切りになる", () => {
     const formatter = new DefaultFormatter()
     const result = formatter.format(entries)
-    const expected = "fuga               \thoge               \tmechakuchanagaitext\tnyassu             "
+    const expected = "fuga                hoge                mechakuchanagaitext nyassu             "
     assertEquals(result, expected)
 })
