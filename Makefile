@@ -17,5 +17,8 @@ test:
 lint:
 	deno lint
 
-exec:
-	./build/lsdeno misc
+SRC?=build/lsdeno
+DST?=/usr/local/bin
+
+install:
+	cp -f ${SRC} ${DST}
