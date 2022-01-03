@@ -30,6 +30,7 @@ export class DefaultFormatter implements Formatter {
 // ファイルモード、リンク数、所有者名、グループ名、ファイルのバイト数、月日、ファイルの最終更新時刻、時間、分、パス名
 export class LongFormatter implements Formatter {
     public format(entries: DirEntry[]): string {
+        const sizeLength = Math.max(...entries.map(e => e.fileInfo.size.toString().length))
         const sorted = entries
             .sort((a, b) => (a.denoEntry.name > b.denoEntry.name ? 1 : -1))
             .map(e => {
@@ -37,7 +38,7 @@ export class LongFormatter implements Formatter {
                 const links = 0 // 大変そう
                 const uid = e.fileInfo.uid // 大変そう
                 const gid = e.fileInfo.gid // 大変そう
-                const fileSize = e.fileInfo.size.toString().padStart(2, " ") // 適当に埋める
+                const fileSize = e.fileInfo.size.toString().padStart(sizeLength, " ")
                 const mtime = e.fileInfo.mtime!
                 const month = dateformat(mtime, "M")
                 const day = dateformat(mtime, "d")

@@ -14,11 +14,11 @@ Deno.test("文字列がソートされかつls -lっぽいフォーマットに�
     const formatter = new LongFormatter()
     const result = formatter.format(mockedEntries)
     const expected =
-        "0  0  0  0   0  2  1  00:00  .hoge\n" +
-        "0  0  0  0   0  2  1  00:00  \u001b[1;96m.nyassu\u001b[0m\n" +
-        "0  0  0  0   0  2  1  00:00  fuga\n" +
-        "0  0  0  0   0  2  1  00:00  hoge\n" +
-        "0  0  0  0   0  2  1  00:00  \u001b[1;96mmechakuchanagaitext\u001b[0m\n" +
-        "0  0  0  0   0  2  1  00:00  \u001b[1;96mnyassu\u001b[0m"
+        "0  0  0  0  0  2  1  00:00  .hoge\n" +
+        "0  0  0  0  0  2  1  00:00  \u001b[1;96m.nyassu\u001b[0m\n" +
+        "0  0  0  0  0  2  1  00:00  fuga\n" +
+        "0  0  0  0  0  2  1  00:00  hoge\n" +
+        "0  0  0  0  0  2  1  00:00  \u001b[1;96mmechakuchanagaitext\u001b[0m\n" +
+        "0  0  0  0  0  2  1  00:00  \u001b[1;96mnyassu\u001b[0m"
     assertEquals(result, expected)
 })
