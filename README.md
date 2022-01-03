@@ -1,6 +1,9 @@
 # lsdeno
 lsdeno is the ls command which reimplemented by deno
 
+## requirements
+- [deno v1.17.1](https://deno.land/)
+
 ## build
 ```
 $ make build

@@ -20,5 +20,5 @@ lint:
 SRC?=build/lsdeno
 DST?=/usr/local/bin
 
-install:
+install: build
 	cp -f ${SRC} ${DST}
