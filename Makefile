@@ -1,10 +1,3 @@
-.PHONY: setup
-setup:
-	mkdir -p misc
-	mkdir -p misc/directory{1..5}
-	touch misc/file{1..5}
-	touch misc/.dotfile{1..5}
-
 .PHONY: build
 build:
 	@mkdir -p build

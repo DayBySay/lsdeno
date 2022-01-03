@@ -42,15 +42,15 @@ Deno.test("OptionA OptionL が存在しない", async t => {
 Deno.test("パス引数のテスト", async t => {
     await t.step("パス引数が存在する場合", async t => {
         await t.step("パス引数がオプションの前にある場合", () => {
-            const args = Args.parse(["misc", "-al"], current)
-            assertEquals(args.path, `${current}/misc`)
+            const args = Args.parse(["src", "-al"], current)
+            assertEquals(args.path, `${current}/src`)
             assertEquals(true, args.hasOptionA)
             assertEquals(true, args.hasOptionL)
         })
 
         await t.step("パス引数がオプションの後ろにある場合", () => {
-            const args = Args.parse(["-al", "misc"], current)
-            assertEquals(args.path, `${current}/misc`)
+            const args = Args.parse(["-al", "src"], current)
+            assertEquals(args.path, `${current}/src`)
             assertEquals(true, args.hasOptionA)
             assertEquals(true, args.hasOptionL)
         })
