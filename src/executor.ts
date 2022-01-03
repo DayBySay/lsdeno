@@ -1,17 +1,19 @@
 import Args from "./args.ts"
-import { Formatter, DefaultFormatter } from "./formatter.ts"
+import DirEntry from "./dirEntry.ts"
+import { Formatter, DefaultFormatter, LongFormatter } from "./formatter.ts"
 import { EntriesFilter, EmptyFilter, DotfileFilter } from "./filter.ts"
 
 export default class Executor {
     path: string
-    entries: Deno.DirEntry[]
+    entries: DirEntry[]
     formatter: Formatter
     filter: EntriesFilter
 
     constructor(args: Args) {
         this.path = args.path
-        this.entries = Array.from(Deno.readDirSync(args.path))
-        this.formatter = new DefaultFormatter()
+        const denoEntries = Array.from(Deno.readDirSync(args.path))
+        this.entries = denoEntries.map(e => new DirEntry(e, Deno.statSync(this.path + "/" + e.name)))
+        this.formatter = args.hasOptionL ? new LongFormatter() : new DefaultFormatter()
         this.filter = args.hasOptionA ? new EmptyFilter() : new DotfileFilter()
     }
 
